@@ -1,0 +1,59 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Detay</h2>
+<br />
+
+<div class="bg-secondary">Fatura Id : @ViewBag.FaturaId</div>
+<br />
+
+<table id="tablo1" class="table table-bordered mx-3 my-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>AÇIKLAMA</th>
+            <th>MİKTAR</th>
+            <th>BİRİM FİYAT</th>
+            <th>TUTAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.FaturaKalemId</td>
+                <td>@f.Aciklama</td>
+                <td>@f.Miktar</td>
+                <td>@f.BirimFiyat</td>
+                <td>@f.Tutar</td>
+               
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+<a href="/Fatura/FaturaKalemEkle/@ViewBag.FaturaId" class="btn btn-primary">Yeni Kalem</a>
+
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tablo1').dataTable({});
+</script>
+

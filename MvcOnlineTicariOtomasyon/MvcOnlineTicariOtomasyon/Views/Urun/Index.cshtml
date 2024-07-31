@@ -1,0 +1,59 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar;
+@model List<Urun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Ürün Listesi</h2>
+<br />
+
+<table  class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ÜRÜN ADI</th>
+            <th>MARKA</th>
+            <th>STOK</th>
+            <th>ALIŞ FİYATI</th>
+            <th>SATIŞ FİYATI</th>
+            <th>KATEGORİ</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.UrunAd</td>
+                <td>@u.Marka</td>
+                <td>@u.Stok</td>
+                <td>@u.AlisFiyat ₺</td>
+                <td>@u.SatisFiyat ₺</td>
+                <td>@u.Kategori.KategoriAd</td>
+                <td><a href="/Urun/UrunSil/@u.UrunId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Urun/UrunGuncelle/@u.UrunId" class="btn btn-primary">Güncelle</a></td>
+                <td><a href="/Urun/SatisYap/@u.UrunId" class="btn btn-warning">Satış Yap</a></td>
+            </tr>
+        }
+    </tbody>
+
+   
+
+</table>
+<a href="/Urun/UrunEkle" class="btn btn-primary">Yeni Ürün</a>
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>

@@ -1,0 +1,46 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar;
+
+@model List<Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kategoriler</h2>
+<br />
+<table class="table table-bordered mx-3 my-3">
+    <thead>
+        <tr>
+            <th>KATEGORİ ADI</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.KategoriAd</td>
+                <td><a href="/Kategori/KategoriSil/@k.KategoriId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Kategori/KategoriGuncelle/@k.KategoriId" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+   
+
+</table>
+<a href="/Kategori/KategoriEkle" class="btn btn-primary">Yeni Kategori</a>
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>

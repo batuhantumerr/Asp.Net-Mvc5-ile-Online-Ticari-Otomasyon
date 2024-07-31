@@ -1,0 +1,54 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Personel Listesi</h2>
+<br />
+
+<table  class="table table-bordered">
+    <thead>
+        <tr>
+            <th>PERSONEL ID</th>
+            <th>AD</th>
+            <th>SOYAD</th>
+            <th>GÖRSEL</th>
+            <th>DEPARTMAN</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.PersonelId</td>
+                <td>@p.PersonelAd</td>
+                <td>@p.PersonelSoyad</td>
+                <td>
+                    <img src="@p.PersonelGorsel" style="width:100px"; height:"50px" />
+                </td>
+                <td>@p.Departman.DepartmanAd</td>
+                <td><a href="/Personel/PersonelGuncelle/@p.PersonelId" class="btn btn-primary">Güncelle</a></td>
+                <td><a href="/Departman/DepartmanPersonelSatis/@p.PersonelId" class="btn btn-dark">Detaylar</a></td>
+            </tr>
+        }
+    </tbody>
+   
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-primary">Yeni Personel</a>
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>

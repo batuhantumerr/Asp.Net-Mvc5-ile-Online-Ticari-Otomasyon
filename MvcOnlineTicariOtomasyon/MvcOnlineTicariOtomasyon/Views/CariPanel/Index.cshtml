@@ -1,0 +1,35 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+<br />
+
+<h2>Profilim</h2>
+<br />
+
+<table class="table table-hover">
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td><label class="font-weight-bold">Mail Adresi : </label>@HttpContext.Current.User.Identity.Name</td>
+        </tr>
+
+        <tr>
+            <td><label class="font-weight-bold">Ad : </label> @x.CariAd</td>
+        </tr>
+
+        <tr>
+            <td><label class="font-weight-bold">Soyad : </label>@x.CariSoyad</td>
+        </tr>
+
+        <tr>
+            <td><label class="font-weight-bold">Şehir : </label>@x.CariSehir</td>
+        </tr>
+
+    }
+
+</table>
+
